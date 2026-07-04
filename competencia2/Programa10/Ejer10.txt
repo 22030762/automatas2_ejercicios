@@ -1,1 +1,1 @@
-print("no se que tanto puso el profe aqui xd");
+print("Alch no se que puso el profe");
