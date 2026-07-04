@@ -1,0 +1,10 @@
+PRINT=1
+PARENTESISIZQ=2
+PARENTESISDER=3
+CADENA=4
+PYC=5
+WS=6
+'print'=1
+'('=2
+')'=3
+';'=5

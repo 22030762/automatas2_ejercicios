@@ -1,0 +1,11 @@
+IF=1
+PARENTESISIZQ=2
+PARENTESISDER=3
+ID=4
+MAYOR_QUE=5
+NUM=6
+WS=7
+'if'=1
+'('=2
+')'=3
+'>'=5
