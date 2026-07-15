@@ -62,9 +62,9 @@ tipoDato:
 
 //PARA EL INSERT
 insertarDatos:
-	INSERT INTO nombreTabla PAR_IZQ listaIds PAR_DER 
-    VALUES PAR_IZQ listaValores PAR_DER PUNTO_COMA
-	| INSERT INTO nombreTabla VALUES PAR_IZQ listaValores PAR_DER PUNTO_COMA;
+    INSERT INTO nombreTabla (PAR_IZQ listaIds PAR_DER)? 
+    VALUES PAR_IZQ listaValores PAR_DER 
+    (COMA PAR_IZQ listaValores PAR_DER)* PUNTO_COMA;
 listaIds: 
     ID (COMA ID)*;
 listaValores: 
@@ -155,88 +155,88 @@ crearTrigger:
     FOR EACH ROW EXECUTE FUNCTION ID PAR_IZQ PAR_DER PUNTO_COMA;
 
 //PALABRAS CLAVE
-CREATE: 'CREATE' | 'create';
-TABLE: 'TABLE' | 'table';
-DROP: 'DROP' | 'drop';
-INSERT: 'INSERT' | 'insert';
-INTO: 'INTO' | 'into';
-VALUES: 'VALUES' | 'values';
-SELECT: 'SELECT' | 'select';
-FROM: 'FROM' | 'from';
-WHERE: 'WHERE' | 'where';
-UPDATE: 'UPDATE' | 'update';
-SET: 'SET' | 'set';
-DELETE: 'DELETE' | 'delete';
-PRIMARY: 'PRIMARY' | 'primary';
-KEY: 'KEY' | 'key';
-FOREIGN: 'FOREIGN' | 'foreign';
-REFERENCES: 'REFERENCES' | 'references';
-CONSTRAINT : 'CONSTRAINT' | 'constraint';
-NOT: 'NOT' | 'not';
-NULL: 'NULL' | 'null';
-UNIQUE: 'UNIQUE' | 'unique';
-DEFAULT: 'DEFAULT' | 'default';
-INNER: 'INNER' | 'inner';
-LEFT: 'LEFT' | 'left';
-RIGHT: 'RIGHT' | 'right';
-JOIN: 'JOIN' | 'join';
-ON: 'ON' | 'on';
-AS: 'AS' | 'as';
-ORDER: 'ORDER' | 'order';
-BY: 'BY' | 'by';
-ASC: 'ASC' | 'asc';
-DESC: 'DESC' | 'desc';
-LIMIT: 'LIMIT' | 'limit';
-OFFSET: 'OFFSET' | 'offset';
-AND: 'AND' | 'and';
-OR: 'OR' | 'or';
-IS: 'IS' | 'is';
-IN: 'IN' | 'in';
-BETWEEN: 'BETWEEN' | 'between';
-LIKE: 'LIKE' | 'like';
-TRUE: 'TRUE' | 'true';
-FALSE: 'FALSE' | 'false';
-INDEX: 'INDEX' | 'index';
-VIEW: 'VIEW' | 'view';
-GROUP: 'GROUP' | 'group';
-HAVING : 'HAVING' | 'having';
+CREATE: [C|c] [Rr] [Ee] [Aa] [Tt] [Ee];
+TABLE: [T|t] [A|a] [Bb] [Ll] [Ee];
+DROP: [D|d] [Rr] [Oo] [Pp];
+INSERT: [I|i] [N|n] [S|s] [Ee] [Rr] [Tt];
+INTO: [I|i] [N|n] [Tt] [Oo];
+VALUES: [V|v] [A|a] [Ll] [Uu] [Ee] [Ss];
+SELECT: [S|s] [Ee] [Ll] [Ee] [Cc] [Tt];
+FROM: [F|f] [Rr] [Oo] [Mm];
+WHERE: [W|w] [Hh] [Ee] [Rr] [Ee];
+UPDATE: [U|u] [Pp] [Dd] [Aa] [Tt] [Ee];
+SET: [S|s] [Ee] [Tt];
+DELETE: [D|d] [Ee] [Ll] [Ee] [Tt] [Ee];
+PRIMARY: [P|p] [Rr] [Ii] [Mm] [Aa] [Rr] [Yy];
+KEY: [K|k] [Ee] [Yy];
+FOREIGN: [F|f] [Oo] [Rr] [Ee] [Ii] [Gg] [Nn];
+REFERENCES: [R|r] [Ee] [Ff] [Ee] [Rr] [Ee] [Nn] [Cc] [Ee] [Ss];
+CONSTRAINT : [C|c] [Oo] [Nn] [Ss] [Tt] [Rr] [Aa] [Ii] [Nn] [Tt];
+NOT: [N|n] [Oo] [Tt];
+NULL: [N|n] [Uu] [Ll] [Ll];
+UNIQUE: [U|u] [Nn] [Ii] [Qq] [Uu] [Ee];
+DEFAULT: [D|d] [Ee] [Ff] [Aa] [Uu] [Ll] [Tt];
+INNER: [I|i] [Nn] [Nn] [Ee] [Rr];
+LEFT: [L|l] [Ee] [Ff] [Tt];
+RIGHT: [R|r] [Ii] [Gg] [Hh] [Tt];
+JOIN: [J|j] [Oo] [Ii] [Nn];
+ON: [O|o] [Nn];
+AS: [A|a] [Ss];
+ORDER: [O|o] [Rr] [Dd] [Ee] [Rr];
+BY: [B|b] [Yy];
+ASC: [A|a] [Ss] [Cc];
+DESC: [D|d] [Ee] [Ss] [Cc];
+LIMIT: [L|l] [Ii] [Mm] [Ii] [Tt];
+OFFSET: [O|o] [Ff] [Ff] [Ss] [Ee] [Tt];
+AND: [A|a] [Nn] [Dd];
+OR: [O|o] [Rr];
+IS: [I|i] [Ss];
+IN: [I|i] [Nn];
+BETWEEN: [B|b] [Ee] [Tt] [Ww] [Ee] [Ee] [Nn];
+LIKE: [L|l] [Ii] [Kk] [Ee];
+TRUE: [T|t] [Rr] [Uu] [Ee];
+FALSE: [F|f] [Aa] [Ll] [Ss] [Ee];
+INDEX: [I|i] [Nn] [Dd] [Ee] [Xx];
+VIEW: [V|v] [Ii] [Ee] [Ww];
+GROUP: [G|g] [Rr] [Oo] [Uu] [Pp];
+HAVING : [H|h] [Aa] [Vv] [Ii] [Nn] [Gg];
 
 //TRANSACCIONES
-BEGIN : 'BEGIN' | 'begin';
-START: 'START' | 'start';
-TRANSACTION: 'TRANSACTION' | 'transaction';
-COMMIT: 'COMMIT' | 'commit';
-ROLLBACK: 'ROLLBACK' | 'rollback';
-PROCEDURE: 'PROCEDURE' | 'procedure';
-REPLACE: 'REPLACE' | 'replace';
-LANGUAGE: 'LANGUAGE' | 'language';
-TRIGGER: 'TRIGGER' | 'trigger';
-BEFORE: 'BEFORE' | 'before';
-AFTER: 'AFTER' | 'after';
-ROW: 'ROW' | 'row';
-EXECUTE: 'EXECUTE' | 'execute';
-FUNCTION: 'FUNCTION' | 'function';
-FOR : 'FOR' | 'for';
-EACH : 'EACH' | 'each';
+BEGIN : [B|b] [Ee] [Gg] [Ii] [Nn];
+START: [S|s] [Tt] [Aa] [Rr] [Tt];
+TRANSACTION: [T|t] [Rr] [Aa] [Nn] [Ss] [Aa] [Cc] [Tt] [Ii] [Oo] [Nn];
+COMMIT: [C|c] [Oo] [Mm] [Mm] [Ii] [Tt];
+ROLLBACK: [R|r] [Oo] [Ll] [Ll] [Bb] [Aa] [Cc] [Kk];
+PROCEDURE: [P|p] [Rr] [Oo] [Cc] [Ee] [Dd] [Uu] [Rr] [Ee];
+REPLACE: [R|r] [Ee] [Pp] [Ll] [Aa] [Cc] [Ee];
+LANGUAGE: [L|l] [Aa] [Nn] [Gg] [Uu] [Aa] [Gg] [Ee];
+TRIGGER: [T|t] [Rr] [Ii] [Gg] [Gg] [Ee] [Rr];
+BEFORE: [B|b] [Ee] [Ff] [Oo] [Rr] [Ee];
+AFTER: [A|a] [Ff] [Tt] [Ee] [Rr];
+ROW : [R|r] [Oo] [Ww];
+EXECUTE: [E|e] [Xx] [Ee] [Cc] [Uu] [Tt] [Ee];
+FUNCTION: [F|f] [Uu] [Nn] [Cc] [Tt] [Ii] [Oo] [Nn];
+FOR : [F|f] [Oo] [Rr];
+EACH : [E|e] [Aa] [Cc] [Hh];
 
 //TIPOS DE DATO
-SERIAL: 'SERIAL' | 'serial';
-INTEGER: 'INTEGER' | 'integer';
-BIGINT: 'BIGINT' | 'bigint';
-SMALLINT: 'SMALLINT' | 'smallint';
-NUMERIC: 'NUMERIC' | 'numeric';
-REAL: 'REAL' | 'real';
-BOOLEAN: 'BOOLEAN' | 'boolean';
-VARCHAR: 'VARCHAR' | 'varchar';
-CHAR: 'CHAR' | 'char';
-TEXT: 'TEXT' | 'text';
-DATE: 'DATE' | 'date';
-TIME: 'TIME' | 'time';
-TIMESTAMP: 'TIMESTAMP' | 'timestamp';
-BYTEA: 'BYTEA' | 'bytea';
-JSON: 'JSON' | 'json';
-JSONB: 'JSONB' | 'jsonb';
-UUID: 'UUID' | 'uuid';
+SERIAL: [S|s] [Ee] [Rr] [Ii] [Aa] [Ll];
+INTEGER: [I|i] [Nn] [Tt] [Ee] [Gg] [Ee] [Rr];
+BIGINT: [B|b] [Ii] [Gg] [Ii] [Nn] [Tt];
+SMALLINT: [S|s] [Mm] [Aa] [Ll] [Ll] [Ii] [Nn] [Tt];
+NUMERIC: [N|n] [Uu] [Mm] [Ee] [Rr] [Ii] [Cc];
+REAL: [R|r] [Ee] [Aa] [Ll];
+BOOLEAN: [B|b] [Oo] [Oo] [Ll] [Ee] [Aa] [Nn];
+VARCHAR: [V|v] [Aa] [Rr] [Cc] [Hh] [Aa] [Rr];
+CHAR: [C|c] [Hh] [Aa] [Rr];
+TEXT: [T|t] [Ee] [Xx] [Tt];
+DATE: [D|d] [Aa] [Tt] [Ee];
+TIME: [T|t] [Ii] [Mm] [Ee];
+TIMESTAMP: [T|t] [Ii] [Mm] [Ee] [Ss] [Tt] [Aa] [Mm] [Pp];
+BYTEA: [B|b] [Yy] [Tt] [Ee] [Aa];
+JSON : [J|j] [Ss] [Oo] [Nn];
+JSONB : [J|j] [Ss] [Oo] [Nn] [Bb];
+UUID: [U|u] [Uu] [Ii] [Dd];
 
 //OPERADORES
 IGUAL: '=';
