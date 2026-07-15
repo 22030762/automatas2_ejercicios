@@ -137,7 +137,7 @@ class App:
             """
             <section class="sql-hero">
                 <h1>SQL Validator</h1>
-                <p>Análisis léxico y sintáctico con ANTLR 4.13.2, Python y Streamlit.</p>
+                <p>Análisis léxico, sintáctico y semantico con ANTLR 4.13.2, Python y Streamlit.</p>
             </section>
             """,
             unsafe_allow_html=True,
@@ -283,18 +283,19 @@ class App:
             )
         else:
             st.markdown(
-                '<div class="status-invalid">✕ El código contiene errores léxicos o sintácticos.</div>',
+                '<div class="status-invalid">✕ El código contiene errores léxicos, sintácticos o semánticos.</div>',
                 unsafe_allow_html=True,
             )
 
         resumen = resultado["resumen"]
-        metricas = st.columns(6)
+        metricas = st.columns(7)
         valores = [
             ("Líneas", resumen["lineas"]),
             ("Tokens", resumen["tokens"]),
             ("Sentencias", resumen["sentencias"]),
             ("Errores léxicos", resumen["errores_lexicos"]),
             ("Errores sintácticos", resumen["errores_sintacticos"]),
+            ("Errores semánticos", resumen.get("errores_semanticos", 0)),
             ("Caracteres", resumen["caracteres"]),
         ]
         for columna, (etiqueta, valor) in zip(metricas, valores):
